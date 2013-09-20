@@ -14,7 +14,7 @@ $mmm=0;
 foreach ($this->sections as $section) :
 ?>
 
-<div>
+<div class="well well-small kfrontend">
 	<div class="btn-toolbar pull-right">
 		<?php if ($this->me->exists()) : ?>
 		<div class="btn-group">
@@ -38,7 +38,7 @@ foreach ($this->sections as $section) :
 	</h2>
 
 	<div class="row-fluid collapse in <?php echo $this->escape($section->class_sfx); ?>" id="section<?php echo $section->id; ?>">
-		<table class="table table-striped table-hover table-bordered table-condensed">
+		<table class="table table-striped table-hover table-condensed">
 			<?php if (!empty($section->description)) : ?>
 			<thead class="hidden-phone">
 				<tr>

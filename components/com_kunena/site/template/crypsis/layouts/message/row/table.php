@@ -21,8 +21,8 @@ $config = KunenaFactory::getConfig();
 $cols = empty($this->checkbox) ? 4 : 5;
 ?>
 <tr>
-	<td class="span3 hidden-phone"> <?php echo $this->getTopicLink ( $topic, 'unread', $topic->getIcon() ) ?> </td>
-	<td>
+	<td class="span1 hidden-phone"> <?php echo $this->getTopicLink ( $topic, 'unread', $topic->getIcon() ) ?> </td>
+	<td class="span5">
 		<?php
 		// FIXME:
 		/*if ($message->attachments) {
@@ -54,7 +54,7 @@ $cols = empty($this->checkbox) ? 4 : 5;
 			<?php echo JText::sprintf('COM_KUNENA_CATEGORY_X', $this->getCategoryLink ( $topic->getCategory() ) ) ?>
 		</div>
 	</td>
-	<td class="span5">
+	<td class="span1">
 		<div>
 			<?php
 			if ($config->avataroncat > 0) :
@@ -67,6 +67,10 @@ $cols = empty($this->checkbox) ? 4 : 5;
 				endif;
 			endif;
 			?>
+			</div>
+	</td>
+	<td class="span3">
+		<div>
 			<span title="<?php echo KunenaDate::getInstance($message->time)->toKunena('config_post_dateformat_hover'); ?>">
 				<?php echo JText::_('COM_KUNENA_POSTED_AT') . ' ' . KunenaDate::getInstance($message->time)->toKunena('config_post_dateformat'); ?>
 			</span>
@@ -89,4 +93,3 @@ $cols = empty($this->checkbox) ? 4 : 5;
 			->setLayout('table_row');
 	?>
 </tr>
-

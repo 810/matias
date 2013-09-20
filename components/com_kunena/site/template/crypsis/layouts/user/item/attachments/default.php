@@ -61,7 +61,7 @@ JHtml::_('behavior.multiselect');
           <td align="center"><?php echo $item->getThumbnailLink() ; ?></td>
           <td align="center">
             <?php if ($item->authorise('delete')) : ?>
-            <a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i; ?>','delfile')"> <img src="<?php echo $this->ktemplate->getImagePath('icons/publish_x.png') ?>" alt="" title="" /> </a>
+            <a href="javascript:void(0);" onclick="return listItemTask('cb<?php echo $i; ?>','delfile')"> <i class="hasTip icon-delete tip" title="Delete"></i> </a>
             <?php endif ?>
           </td>
         </tr>

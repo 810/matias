@@ -17,10 +17,10 @@ $colspan = empty($this->topicActions) ? 5 : 6;
 	<input type="hidden" name="view" value="topics" />
 	<?php echo JHtml::_( 'form.token' ); ?>
 
-	<h3><?php echo $this->escape($this->headerText); ?></h3>
+	<h3 class="btn-link"><?php echo $this->escape($this->headerText); ?></h3>
 
 	<div class="clearfix"></div>
-	<table class="table table-striped table-bordered table-condensed">
+	<table class="table table-striped table-bordered table-hover table-condensed">
 		<?php if (empty ( $this->topics ) && empty ( $this->subcategories )) : ?>
 		<tr>
 			<td colspan="<?php echo $colspan; ?>">
@@ -30,15 +30,13 @@ $colspan = empty($this->topicActions) ? 5 : 6;
 		<?php else : ?>
 		<thead>
 			<tr>
-				<td colspan="<?php echo $colspan-1; ?>">
-					<div class="pagination pull-right"><?php echo $this->getPagination(5); ?></div>
-					<div class="clearfix"></div>
-				</td>
-				<td>
-					<?php if (!empty($this->topicActions)) : ?>
+			  <div class="pagination pull-right"><?php echo $this->getPagination(5); ?></div>
+				<div class="clearfix"></div>
+				<?php if (!empty($this->topicActions)) : ?>
+				<td>					
 					<input class="kcheckall" type="checkbox" name="toggle" value="" />
-					<?php endif; ?>
 				</td>
+				<?php endif; ?>
 			</tr>
 		</thead>
 		<tbody>

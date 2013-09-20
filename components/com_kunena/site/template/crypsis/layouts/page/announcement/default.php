@@ -10,7 +10,7 @@
  **/
 defined ( '_JEXEC' ) or die ();
 ?>
-<div class="alert alert-success">
+<div class="alert alert-info">
 	<a class="close" data-dismiss="alert" href="#">&times;</a>
 	<h3>
 		<?php echo JHtml::_('kunenaforum.link', $this->announcement->getUri(), $this->announcement->displayField('title'), JText::_('COM_KUNENA_VIEW_COMMON_ANNOUNCE_LIST'), null, 'follow'); ?>
@@ -20,8 +20,8 @@ defined ( '_JEXEC' ) or die ();
 	</h3>
 	<div>
 		<?php echo $this->announcement->displayField('sdescription') ?>
+	</div>
 		<?php if (!empty($this->announcement->description)) : ?>
 		<?php echo JHtml::_('kunenaforum.link', $this->announcement->getUri(), JText::_('COM_KUNENA_ANN_READMORE'), null, 'follow'); ?>
-		<?php endif; ?>
-	</div>
+		<?php endif; ?>	
 </div>

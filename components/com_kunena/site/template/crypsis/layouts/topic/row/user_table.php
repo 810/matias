@@ -26,14 +26,10 @@ if ($this->spacing) : ?>
 <?php endif; ?>
 
 <tr>
-	<td>
-		<strong><?php echo $this->formatLargeNumber ( max(0,$topic->getTotal()-1) ); ?></strong>
-		<?php echo JText::_('COM_KUNENA_GEN_REPLIES') ?>
-	</td>
-	<td class="hidden-phone">
+	<td class="td-center hidden-phone span1">
 		<?php echo $this->getTopicLink ( $topic, 'unread', $topic->getIcon() ) ?>
 	</td>
-	<td>
+	<td class="span5">
 		<?php if ($topic->attachments) echo $this->getIcon ( 'ktopicattach', JText::_('COM_KUNENA_ATTACH') ); ?>
 		<?php if ($topic->poll_id) echo $this->getIcon ( 'ktopicpoll', JText::_('COM_KUNENA_ADMIN_POLLS') ); ?>
 		<div>
@@ -71,16 +67,20 @@ if ($this->spacing) : ?>
 		<?php endif; ?>
 		</div>
 	</td>
-	<td>
-		<?php echo $this->formatLargeNumber ( $topic->hits );?>
-		<?php echo JText::_('COM_KUNENA_GEN_HITS');?>
+	<td class="span1 hidden-phone td-center">
+		<span>
+			<?php echo JText::_('COM_KUNENA_GEN_HITS').':'.$this->formatLargeNumber($topic->hits); ?>
+		</span>
+		<span>
+			<?php echo JText::_('COM_KUNENA_GEN_REPLIES').':'.$this->formatLargeNumber(max(0,$topic->getTotal()-1));?>
+		</span>
 	</td>
-	<td>
+	<td class="td-center hidden-phone span1">
 		<?php if (!empty($topic->avatar)) : ?>
 		<?php echo $topic->getLastPostAuthor()->getLink( $topic->avatar ) ?>
 		<?php endif; ?>
 	</td>
-	<td>
+	<td class="td-center hidden-phone span2">
 		<?php
 			echo $this->getTopicLink ( $topic, 'last', JText::_('COM_KUNENA_GEN_LAST_POST') );
 			echo ' ' . JText::_('COM_KUNENA_BY') . ' ' . $topic->getLastPostAuthor()->getLink();

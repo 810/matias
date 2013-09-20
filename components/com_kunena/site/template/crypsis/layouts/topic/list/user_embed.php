@@ -14,8 +14,7 @@ defined ( '_JEXEC' ) or die ();
 <form action="<?php echo KunenaRoute::_('index.php?option=com_kunena') ?>" method="post" name="ktopicsform" id="ktopicsform">
 	<input type="hidden" name="view" value="topics" />
 	<?php echo JHtml::_( 'form.token' ); ?>
-	<div class="well well-small">
-		<div class="pagination pull-right" style="margin:0 25px 0 0 ;"><?php echo $this->getPagination (5); ?></div>
+		<div class="pagination pull-right" style="margin:-25px 0;"><?php echo $this->getPagination (5); ?></div>
 		<div class="clearfix"></div>
 		<?php if (!empty($this->topicActions)) : ?>
 			<span class="pull-right">
@@ -35,7 +34,7 @@ defined ( '_JEXEC' ) or die ();
 						<?php $this->displayRows (); ?>
 						<?php  if ( !empty($this->topicActions) || !empty($this->embedded) ) : ?>
 							<!-- Bulk Actions -->
-							<tr class="krow1">
+							<tr>
 								<td colspan="<?php echo empty($this->topicActions) ? 5 : 6 ?>" class="kcol krowmoderation">
 									<?php if (!empty($this->moreUri)) echo JHtml::_('kunenaforum.link', $this->moreUri, JText::_('COM_KUNENA_MORE'), null, null, 'follow'); ?>
 									<?php if (!empty($this->topicActions)) : ?>
@@ -53,8 +52,7 @@ defined ( '_JEXEC' ) or die ();
 					<?php endif; ?>
 				</table>
 			</div>
-			<div class="pagination pull-right" style="margin:10px 25px 10px 0 ;"><?php echo $this->getPagination (5); ?></div>
+			<div class="pagination pull-right" style="margin:-5px 0 -10px 0;"><?php echo $this->getPagination (5); ?></div>
 			<div class="clearfix"></div>
-		</div>
 	</div>
 </form>

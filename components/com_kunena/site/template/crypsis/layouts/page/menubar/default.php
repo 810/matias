@@ -13,8 +13,14 @@ defined ( '_JEXEC' ) or die ();
 
 <div class="navbar">
 	<div class="navbar-inner">
-		<?php echo $this->subRequest('Page/Menu'); ?>
-		<?php echo $this->subLayout('Page/MenuBar/' . ($this->me->exists() ? 'Logout' : 'Login' ))
+		<div class="hidden-phone">
+		  <?php echo $this->subRequest('Page/Menu'); ?>
+		  <?php echo $this->subLayout('Page/MenuBar/' . ($this->me->exists() ? 'Logout' : 'Login' ))
 			->set('me', $this->me); ?>
+		</div>
+	  <div class="visible-phone hidden-tablet">
+		  <?php echo $this->subLayout('Page/MenuBar/mobile/' . ($this->me->exists() ? 'Logout' : 'Login' ))
+			->set('me', $this->me); ?>
+		</div>
 	</div>
 </div>

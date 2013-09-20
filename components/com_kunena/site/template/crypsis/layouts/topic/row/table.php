@@ -25,7 +25,7 @@ if ($this->spacing) : ?>
 <?php endif; ?>
 
 <tr>
-	<td class="hidden-phone span1 center">
+	<td class="hidden-phone span1 center" style="width:3%">
 		<?php echo $this->getTopicLink($topic, 'unread', $topic->getIcon()); ?>
 	</td>
 	<td class="span6">
@@ -43,7 +43,12 @@ if ($this->spacing) : ?>
 				echo $this->getTopicLink($topic, 'unread',
 					'<sup dir="ltr">(' . $topic->unread . ' ' . JText::_('COM_KUNENA_A_GEN_NEWCHAR') . ')</sup>');
 			endif;
-			?>
+			if ($topic->attachments) :?>
+				 <i class="icon-flag-2 hasTooltip"><?php JText::_('COM_KUNENA_ATTACH') ?></i>
+			<?php endif;
+			if ($topic->poll_id) :?>
+				 <i class="icon-pencil hasTooltip"><?php JText::_('COM_KUNENA_ADMIN_POLLS') ?></i>
+			<?php endif;?>
 		</div>
 		<div>
 			<span class="label label-info"><?php echo JText::_('COM_KUNENA_TOPIC_ROW_TABLE_LABEL_QUESTION') ?></span>
@@ -55,7 +60,7 @@ if ($this->spacing) : ?>
 			in <?php echo $this->getCategoryLink($topic->getCategory(), null, null, 'hasTooltip' ) ?>
 		</div>
 	</td>
-	<td class="span1 hidden-phone">
+	<td class="span1 hidden-phone center">
 		<span>
 			<?php echo JText::_('COM_KUNENA_GEN_HITS').':'.$this->formatLargeNumber($topic->hits); ?>
 		</span>
@@ -63,21 +68,21 @@ if ($this->spacing) : ?>
 			<?php echo JText::_('COM_KUNENA_GEN_REPLIES').':'.$this->formatLargeNumber(max(0,$topic->getTotal()-1));?>
 		</span>
 	</td>
-	<td class="span1 center">
+	<td class="span1 center hidden-phone" style="width:3%">
 		<?php if ($avatar) : ?>
-		<span class="hidden-phone">
+		<span>
 			<?php echo $topic->getLastPostAuthor()->getLink($avatar); ?>
 		</span>
 		<?php endif; ?>
 	</td>
 	<td class="span2">
-		<span class="hasTooltip" title="<?php echo $topic->getLastPostAuthor()->getName(); ?>">
-			<?php echo $topic->getLastPostAuthor()->getLink(); ?>
-		</span>
-		<br />
 		<span class="hasTooltip" title="<?php echo KunenaDate::getInstance($topic->last_post_time)
 			->toKunena('config_post_dateformat_hover'); ?>">
 			<?php echo $this->getTopicLink($topic, 'last',  KunenaDate::getInstance($topic->last_post_time)->toKunena('config_post_dateformat') ); ?>
+		</span>
+		<br />
+		<span class="hasTooltip" title="<?php echo $topic->getLastPostAuthor()->getName(); ?>">
+			<?php echo $topic->getLastPostAuthor()->getLink(); ?>
 		</span>
 	</td>
 	<?php if (!empty($this->checkbox)) : ?>

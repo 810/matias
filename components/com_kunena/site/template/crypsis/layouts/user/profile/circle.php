@@ -10,10 +10,11 @@
  **/
 defined ( '_JEXEC' ) or die ();
 ?>
+
 <div style="width:auto; height:auto;">
 	<div id="messages" style="list-style:none;text-align:center;margin:5px;">
 		<div>
-			<?php if (($avatar = $this->user->getAvatarImage('', 'post'))) echo $this->user->getLink($avatar); ?>
+			<?php if (($avatar = $this->user->getAvatarImage('img-circle avatar-profile', 'post'))) echo $this->user->getLink($avatar); ?>
 		</div>
 	</div>
 </div>

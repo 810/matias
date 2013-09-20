@@ -16,7 +16,7 @@ $this->displayBreadcrumb ();
 ?>
 <?php echo $this->subLayout('Page/Module')->set('position', 'kunena_announcement'); ?>
 
-<table class="table">
+<table>
   <tr>
     <td style="border:none;"> <strong><?php echo intval($this->total) ?></strong> <?php echo JText::_('COM_KUNENA_TOPICS')?> </td>
     <td style="border:none;">
@@ -24,7 +24,6 @@ $this->displayBreadcrumb ();
     </td>
   </tr>
 </table>
-<div class="clearfix"></div>
 <?php echo $this->render('user_embed'); ?>
 <table>
   <tr>

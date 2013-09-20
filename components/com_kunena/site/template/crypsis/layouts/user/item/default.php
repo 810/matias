@@ -18,11 +18,15 @@ defined ( '_JEXEC' ) or die ();
 <div id="user">
 	<div class="span12">
 		<div>
+			<?php if (!empty($this->editlink)) echo '<p class="btn pull-right">'.$this->editlink.'</p>';?>
 			<div class="span3" style="width:13.404255317%"><a href="#" class="thumbnail"><?php echo $this->avatarlink; ?></a></div>
 			<div class="span4">
 				<p><?php echo JText::_($this->profile->getType()) ?></p>
 				<p><strong><?php echo $this->escape($this->name);?></strong></p>
-				<span class="badge badge-warning"><?php echo intval($this->thankyou); ?> Thanks</span> <span class="badge badge-info"><?php echo intval($this->posts); ?> Messages</span>
+				<p><i class="icon-clock profile"> <strong><?php echo JText::_('COM_KUNENA_MYPROFILE_BIRTHDATE'); ?>:</strong> <span title="<?php echo KunenaDate::getInstance($this->profile->birthdate)->toKunena('ago', 'GMT'); ?>"><?php echo KunenaDate::getInstance($this->profile->birthdate)->toKunena('date', 'GMT'); ?></span></i></p>
+				<p><i class="icon-bookmark profile"> <a href="<?php echo $this->escape($this->websiteurl); ?>" target="_blank"><?php echo KunenaHtmlParser::parseText(trim($this->profile->websitename) ? $this->profile->websitename : $this->websiteurl); ?></a></i></p>
+				<p><i class="icon-envelope profile"><?php echo $this->email; ?></i></p>
+				<span class="badge badge-warning"><?php echo intval($this->thankyous); ?> Thanks</span> <span class="badge badge-info"><?php echo intval($this->posts); ?> Messages</span>
 			</div>
 			<div class="span5"> <span>
 				<?php $this->displayTemplateFile('user', 'default', 'social');?>
@@ -32,7 +36,7 @@ defined ( '_JEXEC' ) or die ();
 	</div>
 	<div class="clearfix"></div>
 	<br />
-	<div class="tabs-left">
+	<div class="tabs-left hidden-phone" style="min-height:320px;">
 		<ul id="myTab" class="nav nav-tabs">
 			<li class="active"><a href="#home" data-toggle="tab"><?php echo JText::_('COM_KUNENA_USERPOSTS'); ?></a></li>
 			<?php if ($this->showSubscriptions) :?><li><a href="#subscriptions" data-toggle="tab"><?php echo JText::_('COM_KUNENA_SUBSCRIPTIONS'); ?></a></li><?php endif; ?>

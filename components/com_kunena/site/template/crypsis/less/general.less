@@ -17,6 +17,9 @@
 		max-width: none !important;
 		}
 }
+active, a:focus {
+	outline: 0;
+}
 .knewchar {
 	padding-left: 3px;
 }
@@ -32,9 +35,7 @@
 }
 .navbar-inner {
 	box-shadow: none !important;
-	background: #F5F5F5 !important;
 	padding: 0 !important;
-	border: 1px solid #E3E3E3;
 }
 .table th,
 .table td {
@@ -50,10 +51,13 @@
 .dropdown-menu a,
 .navbar .nav > li > a,
 .btn-link:hover {
-	color: #08c;
+	color: inherit;
 }
 .navbar .nav > li > a {
 	padding: 11px 8px 11px;
+}
+.navbar .mobile, .navbar .mobile .btn-navbar {
+	padding: 3px 8px 3px !important;
 }
 #tow {
 	display: none;
@@ -132,19 +136,11 @@
 .me {
 	float: left;
 	min-height: 150px !important;
-	margin: 5px 45px 5px 20px;
+	padding-right: 10px;
 }
 .me::before {
 	box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
 	left: -9px;
-}
-.you {
-	float: right;
-	margin: 5px 20px 5px 45px;
-}
-.you::before {
-	box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
-	right: -9px;
 }
 #messages li {
 	float: left;
@@ -169,7 +165,9 @@
 	padding-left: 20px;
 }
 .kmsg {
-	border-bottom: 1px solid #e5e5e5;
+	margin-top: 10px !important;
+	margin-left:20px;
+	padding-bottom: 20px;
 }
 .kmsgattach {
 	padding-left: 30px;
@@ -179,11 +177,13 @@
 	margin: 0;
 }
 .kunena-row {
-	width: 105.5% !important;
-	margin-left: -19px;
+	width: 100% !important;
 }
 .kavatar {
 	vertical-align: middle;
+}
+.avatar-profile {
+	box-shadow:0px 0px 6px #b2b2b2;
 }
 .dropdown-menu li > a:hover,
 .dropdown-menu li > a:focus,
@@ -267,4 +267,30 @@ line-height:20px;
 }
 .kmessagepadding {
 padding-left:20px;
+}
+.kmsgbody .kmsgtext {
+	word-wrap: break-word;
+	overflow: hidden;
+}
+.kmsgbody .kmsgtext img {
+	max-width: 100%;
+	max-height: 800px;
+}
+img {
+	max-width: 100%;
+	width: auto \9;
+	height: auto;
+}
+.table td.span10, .table th.span10 {
+	width: 100%;
+	padding-right: 65px;
+}
+.profile {
+	display:table-header-group !important;
+}
+.td-center {
+  text-align: center;
+}
+.navbar .btn-navbar {
+	color:inherit;
 }
